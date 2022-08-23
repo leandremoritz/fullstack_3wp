@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="navbar">
+        <h2 class="nav"><a href="./home.html"><button class="button-17">HOME</button></a></h2>
+        <h2 class="nav"><a href="./products.html"><button class="button-17">PRODUCTS</button></a></h2>
+        <h2 class="nav"><a href="./login.html"><button class="button-17">LOGIN</button></a></h2>
+        <h2 class="nav"><a href="./add.html"><button class="button-17">REGISTER</button></a></h2>
+        <h2 class="nav"><a href="./addproduct.html"><button class="button-17">ADD PRODUCT</button></a></h2>
+        <h2 class="nav"><a href="./admin.html"><button class="button-17">ADMIN</button></a></h2>
+    </div>
+    <h1>REGISTER !</h1>
+
+    <form onsubmit="event.preventDefault(); addUser()" method="post" >
+        <div class="box">
+       
+        <input id="fullname" type="text"   class="button-17"  placeholder="Fullname"/>
+        <input id="dob" type="text"   class="button-17" placeholder="Date Of Birth"/>
+        <input id="age" type="text" class="button-17"  placeholder="Age" />
+        <input id="gender" type="text" class="button-17"  placeholder="gender" />
+        <input id="image" type="text" class="button-17" placeholder="Image Url" />
+        <input id="email" type="text" class="button-17" placeholder="Email" />
+        <input id="password" type="password" class="button-17" placeholder="Password" />
+
+        <button class="button-17"  type="submit" >Sumbit </button>
+        
+        
+          
+        </div>
+          
+        </form>
+</body>
+<script>
+    function addUser() {
+      const fullname = document.querySelector("#fullname").value;
+      const dob = document.querySelector("#dob").value;
+      const age = document.querySelector("#age").value;
+      const gender = document.querySelector("#gender").value;
+      const image = document.querySelector("#image").value;
+      const email = document.querySelector("#email").value;
+      const password = document.querySelector("#password").value;
+      
+      fetch("http://localhost:6969/users/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+         fullname:fullname,
+         dob:dob,
+         age:age,
+         gender: gender,
+         image:image,
+         email: email,
+         password:password
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+    }
+    
+    </script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="navbar">
+        <h2 class="nav"><a href="./home.html"><button class="button-17">HOME</button></a></h2>
+        <h2 class="nav"><a href="./products.html"><button class="button-17">PRODUCTS</button></a></h2>
+        <h2 class="nav"><a href="./login.html"><button class="button-17">LOGIN</button></a></h2>
+        <h2 class="nav"><a href="./add.html"><button class="button-17">REGISTER</button></a></h2>
+        <h2 class="nav"><a href="./addproduct.html"><button class="button-17">ADD PRODUCT</button></a></h2>
+        <h2 class="nav"><a href="./admin.html"><button class="button-17">ADMIN</button></a></h2>
+    </div>
+    <h1>Add</h1>
+    
+    <form onsubmit="event.preventDefault(); addproduct()" method="post" >
+        <div class="box">
+       
+        <input id="id" type="text"   class="button-17"  placeholder="id"/>
+        <input id="image" type="text"   class="button-17" placeholder="image"/>
+        <input id="descriptions" type="text" class="button-17"  placeholder="descriptions" />
+        <input id="category" type="text" class="button-17"  placeholder="category" />
+        <input id="color" type="text" class="button-17" placeholder="color" />
+        <input id="price" type="text" class="button-17" placeholder="price" />
+        <button class="button-17"  type="submit" >Sumbit </button>
+        
+        
+          
+        </div>
+          
+        </form>
+    </body>
+    <script>
+    function addproduct() {
+      const id = document.querySelector("#id").value;
+      const image = document.querySelector("#image").value;
+      const descriptions = document.querySelector("#descriptions").value;
+      const category = document.querySelector("#category").value;
+      const color = document.querySelector("#color").value;
+      const price = document.querySelector("#price").value;
+      
+      fetch("http://localhost:6969/products/addproduct", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+         id:id,
+         image:image,
+         descriptions:descriptions,
+         category: category,
+         color:color,
+         price:price,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+    }
+    
+    </script>
+
+</html>

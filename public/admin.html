@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div id="navbar">
+    <h2 class="nav"><a href="./home.html"><button class="button-17">HOME</button></a></h2>
+    <h2 class="nav"><a href="./products.html"><button class="button-17">PRODUCTS</button></a></h2>
+    <h2 class="nav"><a href="./login.html"><button class="button-17">LOGIN</button></a></h2>
+    <h2 class="nav"><a href="./add.html"><button class="button-17">REGISTER</button></a></h2>
+    <h2 class="nav"><a href="./addproduct.html"><button class="button-17">ADD PRODUCT</button></a></h2>
+    <h2 class="nav"><a href="./admin.html"><button class="button-17">ADMIN</button></a></h2>
+</div>
+
+
+<!-- admin table -->
+    <table>
+        <!-- <thead>
+            <tr>
+                <th scope="col">IMAGE</th>
+                <th scope="col">FULLNAME</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">DOB</th>
+                <th scope="col">AGE</th>
+                <th scope="col">GENDER</th>
+            </tr>
+        </thead> -->
+        <tbody
+id="users">
+</tbody>
+    <script>
+let users = [];
+const userContainer = document.getElementById("users");
+fetch("http://localhost:6969/users/users")
+  .then((res) => res.json())
+  .then((data) => {
+    users = data;
+    console.log(data);
+    showUsers(data);
+  });
+function showUsers(users) {
+  //   prodContainer.innerHTML = "";
+  users.forEach((user) => {
+    userContainer.innerHTML += `
+               
+  <div class="header">
+  </div>
+
+  <div class="cards">
+
+    <div class=" card [ is-collapsed ] ">
+      
+        <span><img src="${user.image}"></span>
+    <div>
+        <p>${user.fullname}</p>
+        <p>${user.email}</p>
+        <p>${user.dob}</p>
+        <p>${user.age}</p>
+        <p>${user.gender}</p>
+       </div> 
+      </div>
+    
+    </div>
+
+  
+            </tbody>
+    `;
+  });
+}
+    </script>
+</body>
