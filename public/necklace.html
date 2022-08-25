@@ -8,35 +8,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="navbar">
-        <h2 class="nav"><a href="./home.html"><button class="button-17">HOME</button></a></h2>
-        <h2 class="nav"><a href="./products.html"><button class="button-17">PRODUCTS</button></a></h2>
-        <h2 class="nav"><a href="./login.html"><button class="button-17">LOGIN</button></a></h2>
-        <h2 class="nav"><a href="./add.html"><button class="button-17">REGISTER</button></a></h2>
-        <h2 class="nav"><a href="./addproduct.html"><button class="button-17">ADD PRODUCT</button></a></h2>
-        <h2 class="nav"><a href="./admin.html"><button class="button-17">ADMIN</button></a></h2>
-        <h2 class="nav"><a href="./filters.html"><button class="button-17">FILTERS</button></a></h2>
-    </div>
-  
-<h1>Products</h1>
-  <div class="loop1">
-    <table>
-        <tbody
-id="products">
-</tbody>
-</div>
+    <h1>NECKLACES</h1>
+    <div id="necklace"></div>
 </body>
+</html>
+
 <script>
-    let products = [];
-    const productContainer = document.getElementById("products");
-    fetch("http://localhost:6969/products")
+    let products = []
+    const productContainer = document.querySelector("#necklace")
+     fetch("http://localhost:6969/products/products/necklace")
       .then((res) => res.json())
       .then((data) => {
-        products = data;
-        console.log(data);
-        showproducts(data);
+        showNecklaces(data);
       });
-      function showproducts(products) {
+
+      function showNecklaces(products) {
       //   prodContainer.innerHTML = "";
       products.forEach((product) => {
         productContainer.innerHTML += `
@@ -72,5 +58,4 @@ id="products">
         `;
       });
     }
-        </script>
-</html>
+</script>

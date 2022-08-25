@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div>
+       <a href="./necklace.html"> <button class="button-17" >Necklaces</button></a>
+       <a href="./bracelet.html"> <button class="button-17" >Bracelet</button></a>
+       <a href="./2pc.html"> <button class="button-17" >Two piece set</button></a>
+       <a href="./rings.html"> <button class="button-17" >Rings</button></a>
+       <a href="./earrings.html"> <button class="button-17">Earrings</button></a>
+
+        <div id="products">
+
+        </div>
+      </div>
+</body>
+<script>
+    let products =[]
+    const productContainer = document.getElementById("products");
+   
+
+    // fetch("http://localhost:6969/products/products/bracelet")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     products = data;
+    //     console.log(data);
+    //     showproducts(data);
+    //   });
+
+    fetch("http://localhost:6969/products/products/2pc")
+      .then((res) => res.json())
+      .then((data) => {
+        products = data;
+        console.log(data);
+        showproducts(data);
+      });
+
+    fetch("http://localhost:6969/products/products/rings")
+      .then((res) => res.json())
+      .then((data) => {
+        products = data;
+        console.log(data);
+        showproducts(data);
+      });
+
+    fetch("http://localhost:6969/products/products/earrings")
+      .then((res) => res.json())
+      .then((data) => {
+        products = data;
+        console.log(data);
+        showproducts(data);
+      });
+</script>
+
+</html>
