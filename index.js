@@ -14,7 +14,7 @@ app.use(cors()); // Dont let local development give errors
 app.use(express.static("public"));
 // GET '/' is always what will be displayed on the home page of your application
 app.get("/", function (req, res)  {
-    res.sendFile(__dirname + "/" + "home.html");
+    res.sendFile(__dirname + "home.html");
   });
   // app.get('/', function(request, response) {
     // Render login template
