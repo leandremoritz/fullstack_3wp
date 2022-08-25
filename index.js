@@ -1,6 +1,7 @@
 // Import needed libraries
 const express = require("express"); // Used to set up a server
 const cors = require("cors"); // Used to prevent errors when working locally
+const path = require("path")
 
 // Import routes
 const userRoute = require("./routes/userRoute");
@@ -13,8 +14,12 @@ app.use(express.json()); // Enable the server to handle JSON requests
 app.use(cors()); // Dont let local development give errors
 app.use(express.static("public"));
 // GET '/' is always what will be displayed on the home page of your application
-app.get("/", function (req, res)  {
-    res.sendFile( "./home.html", {root : __dirname});
+// app.get("/", function (req, res)  {
+//     res.sendFile( "/home.html", {root : __dirname});
+//   });
+  app.get('/', function (req, res) {
+    const index = path.join(__dirname, '/', 'home.html');
+    res.sendFile(index);
   });
   // app.get('/', function(request, response) {
     // Render login template
