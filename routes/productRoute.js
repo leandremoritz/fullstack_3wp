@@ -131,17 +131,16 @@ router.get("/products/earrings", (req,res)=>{
     //  update route
     router.put("/:id", (req, res) => {
       try {
+    
         const {
           image,
           descriptions,
           category,
           color,
-          price
-          
-        } = req.body;
+          price} = req.body;
        
         con.query(
-          `UPDATE products set image="${image}",descriptions="${descriptions}",category="${category}",color="${color}" price="${price}", WHERE id = "${req.params.id}"`,
+          `UPDATE products set image="${image}",descriptions="${descriptions}",category="${category}",color="${color}", price="${price}" WHERE id = "${req.params.id}"`,
           (err, result) => {
             if (err) throw err;
             res.send(result);

@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const con = require("../lib/dbConnection");
 const jwt = require("jsonwebtoken")
-// const middleware = require("../middleware/auth");
+const middleware = require("../middleware/auth");
 require("dotenv").config();
 
-router.get("/users", (req, res) => {
+router.get("/users", middleware, (req, res) => {
   try {
     let mysql ="SELECT * FROM users";
     con.query(mysql, (err, result) => {
