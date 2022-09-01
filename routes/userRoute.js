@@ -30,7 +30,6 @@ router.post("/add", (req, res) => {
       image,
       password,
       email,
-      role
      
     } = req.body;
     const salt = bcrypt.genSaltSync(10);
@@ -44,7 +43,7 @@ router.post("/add", (req, res) => {
       image,
       password: hash,
       email,
-      role
+      
     };
     con.query(sql, user, (err, result) => {
       if (err) throw err;

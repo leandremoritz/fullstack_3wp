@@ -27,7 +27,7 @@
         <input id="gender" type="text" class="button-17"  placeholder="gender" />
         <input id="image" type="text" class="button-17" placeholder="Image Url" />
         <input id="email" type="text" class="button-17" placeholder="Email" />
-        <input id="role" type="text" class="button-17" placeholder="role" />
+        
         <input id="password" type="text" class="button-17" placeholder="Password" />
 
         <button class="button-17"  type="submit" >Sumbit </button>
@@ -46,7 +46,7 @@
       const gender = document.querySelector("#gender").value;
       const image = document.querySelector("#image").value;
       const email = document.querySelector("#email").value;
-      const role = document.querySelector("#role").value;
+     
       
       fetch("http://localhost:6969/users/add", {
         method: "POST",
@@ -61,7 +61,7 @@
          image:image,
          email: email,
          password:password,
-         role:role
+         
         }),
       })
         .then((res) => res.json())
