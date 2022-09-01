@@ -35,3 +35,13 @@ app.listen(app.get ("port"),() => {
     console.log("Server is running")
     console.log(`Access Port at localhost:${app.get("port")}`)
 })
+
+app.use(
+  cors({
+    origin: ["http://192.168.9.202:8080/", "http://localhost:8080/"],
+    credentials: true,
+  })
+);
+{
+  credentials: "include";
+}
