@@ -47,7 +47,7 @@ router.get("/:id", (req, res) => {
   }
 });
 // update user
-router.put("/update/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   try {
 
     const {
