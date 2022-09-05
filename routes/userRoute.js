@@ -32,7 +32,7 @@ router.delete("/:id", (req, res) => {
   }
 });
 // update user
-router.patch("/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   try {
 
     const {
