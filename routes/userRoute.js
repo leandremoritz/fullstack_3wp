@@ -44,7 +44,7 @@ router.put("/:id", (req, res) => {
     email} = req.body;
    
     con.query(
-      `UPDATE users set fullname="${fullname}",dob="${dob}",age="${age}",color="${color}", gender="${gender}", image="${image}", email="${email}"  WHERE id = "${req.params.id}"`,
+      `UPDATE users set fullname="${fullname}",dob="${dob}",age="${age}", gender="${gender}", image="${image}", email="${email}"  WHERE id = "${req.params.id}"`,
       (err, result) => {
         if (err) throw err;
         res.send(result);
