@@ -41,9 +41,7 @@ router.get("/:id", (req, res) => {
        console.log(error)
      }
     }
-    // else {
-    //  res.send('Not Allowed')
-    // }
+    
 });
  
 

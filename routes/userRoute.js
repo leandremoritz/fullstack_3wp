@@ -16,6 +16,45 @@ router.get("/users",(req, res) => {
     console.log(error);
   }
 });
+// delete user
+router.delete("/:id", (req, res) => {
+  try {
+    con.query(
+      `DELETE FROM users WHERE id = "${req.params.id}" `,
+      (err, result) => {
+        if (err) throw err;
+        res.send(result);
+      }
+    );
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error);
+  }
+});
+// update user
+router.put("/:id", (req, res) => {
+  try {
+
+    const {
+      fullname,
+      dob,
+      age,
+      gender,
+      image,
+    email} = req.body;
+   
+    con.query(
+      `UPDATE users set fullname="${fullname}",dob="${dob}",age="${age}",color="${color}", gender="${gender}", image="${image}", email="${email}"  WHERE id = "${req.params.id}"`,
+      (err, result) => {
+        if (err) throw err;
+        res.send(result);
+      }
+    );
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error);
+  }
+});
 
 // Add user /regiter
 const bcrypt = require('bcryptjs');
