@@ -30,9 +30,9 @@ router.get("/:id", (req, res) => {
   });
   router.post('/addproduct', (req, res)=>{
     {
-     const {id,image,descriptions,category,color,price} = req.body
+     const {image,descriptions,category,color,price} = req.body
      try{
-       con.query(`INSERT INTO  products (id,image,descriptions,category,color,price) values ('${id}','${image}','${descriptions}','${category}','${color}','${price}')`, (err, result) => {
+       con.query(`INSERT INTO  products (image,descriptions,category,color,price) values ('${image}','${descriptions}','${category}','${color}','${price}')`, (err, result) => {
          if (err) throw err;
          res.send(result);
        });

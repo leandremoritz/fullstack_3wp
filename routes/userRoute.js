@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken")
 const middleware = require("../middleware/auth");
 require("dotenv").config();
 
-router.get("/users", middleware, (req, res) => {
+router.get("/users",(req, res) => {
   try {
     let mysql ="SELECT * FROM users";
     con.query(mysql, (err, result) => {
@@ -16,6 +16,7 @@ router.get("/users", middleware, (req, res) => {
     console.log(error);
   }
 });
+
 // Add user /regiter
 const bcrypt = require('bcryptjs');
 
