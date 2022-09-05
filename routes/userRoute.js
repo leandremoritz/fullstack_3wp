@@ -32,7 +32,7 @@ router.delete("/:id", (req, res) => {
   }
 });
 // get user by id
-router.get("user/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   try {
     con.query(
       `SELECT * FROM users WHERE id = ${req.params.id}`,
@@ -47,7 +47,7 @@ router.get("user/:id", (req, res) => {
   }
 });
 // update user
-router.put("update/:id", (req, res) => {
+router.put("/update/:id", (req, res) => {
   try {
 
     const {
