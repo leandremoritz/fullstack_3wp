@@ -28,6 +28,13 @@ app.use(express.static("public"));
   // });
 
   // Use individual routes when visiting these URLS
+  app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', '*');
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+  });
 app.use("/users", userRoute);
 app.use("/products", productRoute);
 
